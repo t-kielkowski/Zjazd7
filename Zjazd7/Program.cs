@@ -35,7 +35,7 @@ namespace Zjazd7
 
         static void Main(string[] args)
         {
-            int size = 10;
+            int size = 100;
             MyClass[] TabOfElements = new MyClass[size];
             List<MyClass> ListOfElements = new List<MyClass>();
 
