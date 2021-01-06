@@ -35,7 +35,7 @@ namespace Zjazd7
 
         static void Main(string[] args)
         {
-            int size = 100;
+            int size = 10;
             MyClass[] TabOfElements = new MyClass[size];
             List<MyClass> ListOfElements = new List<MyClass>();
 
@@ -45,14 +45,14 @@ namespace Zjazd7
                 TabOfElements[i].Id = i + 1;
                 TabOfElements[i].Name = RandomString();
                 TabOfElements[i].Tab = RandomTab();
-                ListOfElements.Add(new MyClass(TabOfElements[i].Id, TabOfElements[i].Name, TabOfElements[i].Tab));
+                ListOfElements.Add((MyClass) TabOfElements[i].Clone());
             }
 
             for (int i = 0; i < size; i++)
             {
                 TabOfElements[i].Name = "";
                 TabOfElements[i].Tab = new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-            
+
                 Console.Write("TabOfElements: ");
                 TabOfElements[i].Print();
                 Console.Write("ListOfElements: ");
@@ -60,13 +60,12 @@ namespace Zjazd7
             }
 
             Console.WriteLine();
-          
+
             ListOfElements.Sort();
             foreach (var listOfElement in ListOfElements)
             {
                 listOfElement.Print();
             }
-
         }
     }
 }
