@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace Zjazd7
 {
@@ -26,11 +28,11 @@ namespace Zjazd7
 
         public object Clone()
         {
-            var temporary = new MyClass();
+            var temporary = (MyClass) this.MemberwiseClone();
 
             temporary.Id = this.Id;
-            temporary.Name = this.Name;
-            temporary.Tab = this.Tab;
+            temporary.Name = (string)Name.Clone();
+            temporary.Tab = (int[])Tab.Clone();
 
             return temporary;
         }
@@ -38,6 +40,14 @@ namespace Zjazd7
         public int CompareTo(MyClass rhs)
         {
             return Name.CompareTo(rhs.Name);
+        }
+
+        public void resetTab()
+        {
+            for (int i = 0; i < Tab.Length; i++)
+            {
+                Tab[i] = 0;
+            }
         }
 
         public void Print()

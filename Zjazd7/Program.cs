@@ -33,6 +33,7 @@ namespace Zjazd7
             return tab;
         }
 
+
         static void Main(string[] args)
         {
             int size = 100;
@@ -48,18 +49,18 @@ namespace Zjazd7
                 ListOfElements.Add((MyClass) TabOfElements[i].Clone());
             }
 
+            Console.WriteLine();
+
             for (int i = 0; i < size; i++)
             {
                 TabOfElements[i].Name = "";
-                TabOfElements[i].Tab = new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                TabOfElements[i].resetTab();
 
                 Console.Write("TabOfElements: ");
                 TabOfElements[i].Print();
                 Console.Write("ListOfElements: ");
                 ListOfElements[i].Print();
             }
-
-            Console.WriteLine();
 
             ListOfElements.Sort();
             foreach (var listOfElement in ListOfElements)
